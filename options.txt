@@ -1,0 +1,72 @@
+    <p>
+     <input type="checkbox" name="<?php echo $this->get_field_name('showLinkCount'); ?>" <?php if ($showLinkCount=='yes')  echo 'checked'; ?> id="<?php echo $this->get_field_id('showLinkCount') ?>"></input> <label for="<?php echo $this->get_field_id('showLinkCount'); ?>">Show Link Count </label>
+    </p>
+    <p>Sort Link Categories by:<br />
+     <select name="<?php echo $this->get_field_name('catSort'); ?>">
+     <option <?php if($catSort=='catName') echo 'selected'; ?> id="sortCatName" value='catName'>Link category name</option>
+     <option <?php if($catSort=='catId') echo 'selected'; ?> id="sortCatId" value='catId'>Link category id</option>
+     <option <?php if($catSort=='catSlug') echo 'selected'; ?> id="sortCatSlug" value='catSlug'>Link category Slug</option>
+     <option <?php if($catSort=='catOrder') echo 'selected'; ?> id="sortCatOrder" value='catOrder'>Link category (term) Order</option>
+     <option <?php if($catSort=='catCount') echo 'selected'; ?> id="sortCatCount" value='catCount'>Link category Count</option>
+    </select>
+     <input type="radio" name="<?php echo $this->get_field_name('catSortOrder'); ?>" <?php if($catSortOrder=='ASC') echo 'checked'; ?> id="<?php echo $this->get_field_id('catSortASC') ?>" value='ASC'></input> <label for="<?php echo $this->get_field_id('catSortASC'); ?>">Ascending</label>
+     <input type="radio" name="<?php echo $this->get_field_name('catSortOrder'); ?>" <?php if($catSortOrder=='DESC') echo 'checked'; ?> id="<?php echo $this->get_field_id('catSortDESC') ?>" value='DESC'></input> <label for="<?php echo $this->get_field_id('catSortDESC'); ?>">Descending</label>
+    </p>
+    <p>Sort Links by:<br />
+     <select name="<?php echo $this->get_field_name('linkSort'); ?>">
+     <option <?php if($linkSort=='linkName') echo 'selected'; ?> id="<?php echo $this->get_field_id('sortLinkName') ?>" value='linkName'>Link name</option>
+     <option <?php if($linkSort=='linkId') echo 'selected'; ?> id="<?php echo $this->get_field_id('sortLinkId') ?>" value='linkId'>Link id</option>
+     <option <?php if($linkSort=='linkUrl') echo 'selected'; ?> id="<?php echo $this->get_field_id('sortLinkUrl') ?>" value='linkUrl'>Link Url</option>
+     <option <?php if($linkSort=='linkRating') echo 'selected'; ?> id="<?php echo $this->get_field_id('sortLinkOrder') ?>" value='linkRating'>Link Rating</option>
+    </select>
+     <input type="radio" name="<?php echo $this->get_field_name('linkSortOrder'); ?>" <?php if($linkSortOrder=='ASC') echo 'checked'; ?> id="<?php echo $this->get_field_id('linkSortASC') ?>" value='ASC'></input> <label for="<?php echo $this->get_field_id('linkPostASC'); ?>">Ascending</label>
+     <input type="radio" name="<?php echo $this->get_field_name('linkSortOrder'); ?>" <?php if($linkSortOrder=='DESC') echo 'checked'; ?> id="<?php echo $this->get_field_id('linkPostDESC') ?>" value='DESC'></input> <label for="<?php echo $this->get_field_id('linkPostDESC'); ?>">Descending</label>
+    </p>
+    <p>Expanding and collapse characters:<br />
+     <strong>html:</strong> <input type="radio" name="<?php echo $this->get_field_name('expand'); ?>" <?php if($expand==0) echo 'checked'; ?> id="<?php echo $this->get_field_id('expand0') ?>" value='0'></input> <label for="<?php echo $this->get_field_id('expand0'); ?>">&#9658;&nbsp;&#9660;</label>
+     <input type="radio" name="<?php echo $this->get_field_name('expand'); ?>" <?php if($expand==1) echo 'checked'; ?> id="<?php echo $this->get_field_id('expand1') ?>" value='1'></input> <label for="<?php echo $this->get_field_id('expand1'); ?>">+&nbsp;&mdash;</label>
+     <input type="radio" name="<?php echo $this->get_field_name('expand'); ?>"
+     <?php if($expand==2) echo 'checked'; ?> id="<?php echo
+$this->get_field_id('expand2') ?>" value='2'></input>
+     <label for="<?php echo $this->get_field_id('expand2'); ?>">[+]&nbsp;[&mdash;]</label>
+     <input type="radio" name="<?php echo $this->get_field_name('expand'); ?>"
+     <?php if($expand==4) echo 'checked'; ?> id="<?php echo
+$this->get_field_id('expand4') ?>" value='4'></input>
+     <label for="<?php echo $this->get_field_id('expand4'); ?>">custom</label>
+     expand: 
+     <input type="text" size='2' name="<?php echo $this->get_field_name('customExpand'); ?>" value="<?php echo $customExpand ?>" id="<?php echo $this->get_field_id('collapsLink') ?>"></input> 
+     collapse: 
+     <input type="text" size='2' name="<?php echo $this->get_field_name('customCollapse'); ?>" value="<?php echo $customCollapse ?>" id="<?php echo $this->get_field_id('collapsLink') ?>"></input> <br />
+     <strong>images:</strong>
+     <input type="radio" name="<?php echo $this->get_field_name('expand'); ?>"
+     <?php if($expand==3) echo 'checked'; ?> id="<?php echo
+$this->get_field_id('expand0') ?>" value='3'></input>
+     <label for="<?php echo $this->get_field_id('expand3'); ?>"><img src='<?php echo get_settings('siteurl') .
+     "/wp-content/plugins/collapsing-links/" ?>img/collapse.gif' />&nbsp;<img
+     src='<?php echo get_settings('siteurl') .
+     "/wp-content/plugins/collapsing-links/" ?>img/expand.gif' /></label>
+    </p>
+    <p>Auto-expand these link categories (separated by commas):<br />
+     <input type="text" name="<?php echo $this->get_field_name('defaultExpand'); ?>" value="<?php echo $defaultExpand ?>" id="<?php echo $this->get_field_id('defaultExpand') ?>"</input> 
+    </p>
+    <p> 
+     <select name="<?php echo $this->get_field_name('inExclude'); ?>">
+     <option  <?php if($inExclude=='include') echo 'selected'; ?> id="<?php echo $this->get_field_id('inExcludeInclude') ?>" value='include'>Include</option>
+     <option  <?php if($inExclude=='exclude') echo 'selected'; ?> id="<?php echo $this->get_field_id('inExcludeExclude') ?>" value='exclude'>Exclude</option>
+     </select>
+     these link categories (separated by commas):<br />
+    <input type="text" name="<?php echo $this->get_field_name('inExcludeCats'); ?>" value="<?php echo $inExcludeCats ?>" id="<?php echo $this->get_field_id('inExcludeCats') ?>"</input> 
+    </p>
+   <p>
+   <input type="checkbox" name="<?php echo $this->get_field_name('animate'); ?>" <?php if ($animate==1) echo
+   'checked'; ?> id="<?php echo $this->get_field_id('animate') ?>"></input> <label
+   for="<?php echo $this->get_field_id('animate'); ?>">Animate collapsing and expanding</label>
+   <input type="checkbox" name="<?php echo $this->get_field_name('nofollow'); ?>" 
+   <?php if ($nofollow) echo 'checked'; ?> id="<?php echo $this->get_field_id('nofollow') ?>"></input> <label
+   for="<?php echo $this->get_field_id('nofollow'); ?>">add nofollow to links </label>
+   </p>
+     <input type="checkbox" name="<?php echo $this->get_field_name('debug'); ?>"
+<?php if ($debug=='1')  echo 'checked'; ?> id="<?php echo
+$this->get_field_id('debug') ?>"></input> <label for="<?php echo $this->get_field_id('debug'); ?>">Show debugging information
+(shows up as a hidden pre right after the title)</label>
+    </p>
